@@ -25,7 +25,7 @@ export default function Hero() {
             <button 
               onClick={scrollToContact}
               data-testid="button-consultation"
-              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-accent-foreground bg-accent hover:bg-accent/90 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Book a Free Consultation
               <ArrowRight className="ml-2 w-5 h-5" />
