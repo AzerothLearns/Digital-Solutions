@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cfnaLogo from "@assets/CFNA LOGO_1757334441451.png";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,9 +21,14 @@ export default function Navbar() {
             <button 
               onClick={() => scrollToSection('hero')}
               data-testid="logo-cfna"
-              className="text-2xl font-bold gradient-text"
+              className="flex items-center space-x-3"
             >
-              CFNA Marketing
+              <img 
+                src={cfnaLogo} 
+                alt="CFNA Marketing Logo" 
+                className="h-12 w-auto"
+                data-testid="logo-image"
+              />
             </button>
           </div>
           

@@ -1,3 +1,5 @@
+import cfnaLogo from "@assets/CFNA LOGO_1757334441451.png";
+
 export default function Footer() {
   const socialLinks = [
     {
@@ -29,13 +31,18 @@ export default function Footer() {
             <button 
               onClick={scrollToTop}
               data-testid="footer-logo"
-              className="text-2xl font-bold gradient-text"
+              className="flex flex-col items-center md:items-start space-y-2"
             >
-              CFNA Marketing
+              <img 
+                src={cfnaLogo} 
+                alt="CFNA Marketing Logo" 
+                className="h-16 w-auto"
+                data-testid="footer-logo-image"
+              />
+              <p className="text-muted-foreground text-sm" data-testid="footer-tagline">
+                Driving clicks. Delivering growth.
+              </p>
             </button>
-            <p className="text-muted-foreground mt-2" data-testid="footer-tagline">
-              Driving clicks. Delivering growth.
-            </p>
           </div>
           
           <div className="flex items-center space-x-6">
