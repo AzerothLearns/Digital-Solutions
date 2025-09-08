@@ -21,8 +21,8 @@ export default function Services() {
       color: "primary"
     },
     {
-      title: "Strategy & Analytics",
-      description: "Data-driven strategies and comprehensive analytics to optimize performance and ensure continuous growth and improvement.",
+      title: "Search Engine Optimization",
+      description: "Boost your website's visibility and drive organic traffic with expert SEO strategies that improve rankings and attract qualified leads.",
       icon: BarChart3,
       color: "secondary"
     }
