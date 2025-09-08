@@ -165,7 +165,8 @@ export default function Contact() {
                         <Input 
                           placeholder="Your company name" 
                           data-testid="input-company"
-                          {...field} 
+                          {...field}
+                          value={field.value || ""}
                         />
                       </FormControl>
                       <FormMessage />
