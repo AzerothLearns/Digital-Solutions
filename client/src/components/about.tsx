@@ -1,18 +1,21 @@
 import { Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import workingPicture1 from "@assets/WorkingPicture1.jpg";
 
 export default function About() {
+  const { t } = useTranslation();
   const features = [
     {
-      title: "Proven Track Record",
-      description: "Average 300% increase in qualified leads within 6 months"
+      title: t("about.features.innovative.title", { defaultValue: "Innovative Strategies" }),
+      description: t("about.features.innovative.description", { defaultValue: "We bring a fresh perspective to digital marketing, blending creativity with proven methods to deliver campaigns that make an impact." })
     },
     {
-      title: "Data-Driven Approach", 
-      description: "Every decision backed by comprehensive analytics and market research"
+      title: t("about.features.data.title", { defaultValue: "Data-Driven Approach" }),
+      description: t("about.features.data.description", { defaultValue: "Every decision backed by comprehensive analytics and market research" })
     },
     {
-      title: "Personalized Strategy",
-      description: "Custom solutions tailored to your industry and business goals"
+      title: t("about.features.personalized.title", { defaultValue: "Personalized Strategy" }),
+      description: t("about.features.personalized.description", { defaultValue: "Custom solutions tailored to your industry and business goals" })
     }
   ];
 
@@ -22,35 +25,28 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="fade-in">
             <img 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern office workspace with team collaboration" 
+              src={workingPicture1}
+              alt={t("about.imageAlt", { defaultValue: "Team working together in a modern office" })}
               className="rounded-2xl shadow-2xl w-full h-auto"
               data-testid="img-office"
             />
           </div>
-          
           <div className="fade-in fade-in-delay-1">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" data-testid="about-title">
-              Why Choose <span className="gradient-text">CFNA Marketing</span>?
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent" data-testid="about-title">
+              {t("about.title", { defaultValue: "Why Choose CFNA Digital Solutions?" })}
             </h2>
-            
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed" data-testid="about-description">
-              With over 8 years of experience in digital marketing, CFNA Marketing has helped hundreds of businesses transform their online presence and achieve unprecedented growth.
+              {t("about.description", { defaultValue: "At CFNA Digital Solutions, we may be a new player in the industry, but we’re driven by bold ideas and a passion for helping businesses thrive in the digital world. Our mission is simple: to empower brands with innovative strategies that not only attract attention but also generate measurable growth." })}
             </p>
-            
             <div className="space-y-6">
               {features.map((feature, index) => (
-                <div key={feature.title} className="flex items-start space-x-4" data-testid={`feature-${index + 1}`}>
+                <div key={feature.title} className="flex items-start space-x-4" data-testid={`feature-${index + 1}`}> 
                   <div className={`w-6 h-6 ${index % 2 === 0 ? 'bg-primary' : 'bg-secondary'} rounded-full flex-shrink-0 flex items-center justify-center mt-1`}>
                     <Check className="w-3 h-3 text-primary-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2" data-testid={`feature-title-${index + 1}`}>
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground" data-testid={`feature-description-${index + 1}`}>
-                      {feature.description}
-                    </p>
+                    <h3 className="font-semibold text-lg mb-2" data-testid={`feature-title-${index + 1}`}>{feature.title}</h3>
+                    <p className="text-muted-foreground" data-testid={`feature-description-${index + 1}`}>{feature.description}</p>
                   </div>
                 </div>
               ))}

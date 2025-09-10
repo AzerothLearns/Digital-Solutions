@@ -1,8 +1,10 @@
 import { useState } from "react";
-import cfnaLogo from "@assets/CFNA LOGO_1757334441451.png";
+import { useTranslation } from "react-i18next";
+import cfnaLogo from "@assets/CFNALOGO20.jpg";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -25,40 +27,52 @@ export default function Navbar() {
             >
               <img 
                 src={cfnaLogo} 
-                alt="CFNA Marketing Logo" 
-                className="h-12 w-auto"
+                alt={t("navbar.logoAlt", { defaultValue: "CFNA Marketing Logo" })}
+                className="h-16 w-auto object-contain bg-white rounded-lg shadow-md"
                 data-testid="logo-image"
               />
             </button>
           </div>
-          
           {/* Desktop Navigation */}
-          <div className="hidden md:block fade-in fade-in-delay-1">
+          <div className="hidden md:flex fade-in fade-in-delay-1 items-center">
             <div className="ml-10 flex items-baseline space-x-8">
               <button 
                 onClick={() => scrollToSection('services')}
                 data-testid="nav-services"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
               >
-                Services
+                {t("navbar.services", { defaultValue: "Services" })}
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
                 data-testid="nav-about"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
               >
-                About
+                {t("navbar.about", { defaultValue: "About" })}
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 data-testid="nav-contact"
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium"
               >
-                Contact
+                {t("navbar.contact", { defaultValue: "Contact" })}
+              </button>
+            </div>
+            <div className="ml-8 flex gap-2">
+              <button
+                className="px-3 py-1 rounded bg-primary text-white text-sm"
+                onClick={() => i18n.changeLanguage("en")}
+              >
+                English
+              </button>
+              <button
+                className="px-3 py-1 rounded bg-secondary text-white text-sm"
+                onClick={() => i18n.changeLanguage("da")}
+              >
+                Dansk
               </button>
             </div>
           </div>
-          
           {/* Mobile Menu Button */}
           <div className="md:hidden fade-in fade-in-delay-1">
             <button 
@@ -72,7 +86,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border">
@@ -82,21 +95,21 @@ export default function Navbar() {
                 data-testid="mobile-nav-services"
                 className="block w-full text-left px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Services
+                {t("navbar.services", { defaultValue: "Services" })}
               </button>
               <button
                 onClick={() => scrollToSection('about')}
                 data-testid="mobile-nav-about"
                 className="block w-full text-left px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                About
+                {t("navbar.about", { defaultValue: "About" })}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 data-testid="mobile-nav-contact"
                 className="block w-full text-left px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                Contact
+                {t("navbar.contact", { defaultValue: "Contact" })}
               </button>
             </div>
           </div>

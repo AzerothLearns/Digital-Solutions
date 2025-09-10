@@ -1,6 +1,8 @@
-import cfnaLogo from "@assets/CFNA LOGO_1757334441451.png";
+import cfnaLogo from "@assets/CFNALOGO20.jpg";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const socialLinks = [
     {
       name: "LinkedIn",
@@ -35,16 +37,15 @@ export default function Footer() {
             >
               <img 
                 src={cfnaLogo} 
-                alt="CFNA Marketing Logo" 
+                alt={t("footer.logoAlt", { defaultValue: "CFNA Marketing Logo" })}
                 className="h-16 w-auto"
                 data-testid="footer-logo-image"
               />
               <p className="text-muted-foreground text-sm" data-testid="footer-tagline">
-                Driving clicks. Delivering growth.
+                {t("footer.tagline", { defaultValue: "Driving clicks. Delivering growth." })}
               </p>
             </button>
           </div>
-          
           <div className="flex items-center space-x-6">
             {socialLinks.map((social, index) => (
               <a 
@@ -60,10 +61,9 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground" data-testid="footer-copyright">
-            © 2024 CFNA Marketing. All rights reserved.
+            {t("footer.copyright", { defaultValue: "© 2025 CFNA Digital Solutions. All rights reserved." })}
           </p>
         </div>
       </div>

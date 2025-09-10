@@ -137,6 +137,15 @@
     transform: translateY(-8px);
   }
 
+  .gradient-btn {
+    background: linear-gradient(to right, #3b82f6, #c2410c); /* blue-500 to orange-700 */
+    transition: background 0.7s ease-in-out;
+  }
+
+  .gradient-btn:hover {
+    background: linear-gradient(to left, #3b82f6, #c2410c); /* reverse direction, darker orange */
+  }
+
   @keyframes fadeInUp {
     to {
       opacity: 1;

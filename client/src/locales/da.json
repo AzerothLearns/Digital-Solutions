@@ -1,0 +1,100 @@
+{
+  "navbar": {
+    "logoAlt": "CFNA Marketing Logo",
+    "services": "Tjenester",
+    "about": "Om os",
+    "contact": "Kontakt"
+  },
+  "contact": {
+    "title": "Klar til at komme i gang?",
+    "subtitle": "Lad os tale om, hvordan vi kan accelerere din virksomheds vækst med dokumenterede digitale marketingstrategier",
+    "form": {
+      "name": "Fulde navn",
+      "namePlaceholder": "Indtast dit fulde navn",
+      "nameError": "Navnet skal være mindst 2 tegn",
+      "email": "Email adresse",
+      "emailPlaceholder": "Indtast din email adresse",
+      "emailError": "Indtast en gyldig email adresse",
+      "company": "Virksomhed (valgfrit)",
+      "companyPlaceholder": "Din virksomheds navn",
+      "message": "Besked",
+      "messagePlaceholder": "Fortæl os om dit projekt og dine mål...",
+      "messageError": "Beskeden skal være mindst 10 tegn",
+      "send": "Send besked",
+      "sending": "Sender..."
+    },
+    "toast": {
+      "successTitle": "Besked sendt!",
+      "successDesc": "Tak for din besked! Vi vender tilbage inden for 24 timer.",
+      "errorTitle": "Fejl",
+      "errorDesc": "Det lykkedes ikke at sende beskeden. Prøv igen."
+    },
+    "info": {
+      "title": "Kontakt os",
+      "email": "Email",
+      "phone": "Telefon",
+      "responseTime": "Responstid",
+      "responseTimeValue": "Inden for 24 timer",
+      "location": "Lokation",
+      "locationValue": "Danmark, København"
+    },
+    "social": {
+      "title": "Sociale Medier"
+    }
+  },
+  "services": {
+    "title": "Vores tjenester",
+    "subtitle": "Vi tilbyder omfattende digitale markedsføringsløsninger, der er skræddersyet til dine forretningsmål",
+    "socialMedia": {
+      "title": "Sociale Medier Administration",
+      "description": "Byg engagerende fællesskaber og øg brandbevidsthed på alle større sociale platforme med strategisk indhold og fællesskabsstyring."
+    },
+    "paidAds": {
+      "title": "Betalt Annoncering",
+      "description": "Maksimer dit afkast med professionelt administrerede Google Ads, Facebook Ads og kampagner på flere platforme, der giver målbare resultater."
+    },
+    "contentCreation": {
+      "title": "Indholdsproduktion",
+      "description": "Fang dit publikum med indhold af høj kvalitet, tekstforfatning og multimedier, der effektivt fortæller din virksomheds historie."
+    },
+    "seo": {
+      "title": "Søgemaskineoptimering",
+      "description": "Øg din hjemmesides synlighed og tiltræk organisk trafik med ekspertstrategier, der forbedrer placeringer og tiltrækker kvalificerede leads."
+    },
+    "aiVisibility": {
+      "title": "AI Synlighedsoptimering",
+      "description": "Udnyt kunstig intelligens til at forbedre din virksomheds online synlighed, automatisere indsigter og overgå konkurrenter på søge- og sociale platforme."
+    }
+  },
+  "about": {
+    "title": "Hvorfor vælge CFNA Digital Solutions?",
+    "description": "Hos CFNA Digital Solutions er vi måske nye i branchen, men vi drives af dristige idéer og en passion for at hjælpe virksomheder med at trives i den digitale verden. Vores mission er enkel: at styrke brands med innovative strategier, der ikke kun tiltrækker opmærksomhed, men også skaber målbar vækst.",
+    "imageAlt": "Moderne kontorarbejdsplads med teamsamarbejde",
+    "features": {
+      "innovative": {
+        "title": "Innovative Strategier",
+        "description": "Vi bringer et friskt perspektiv til digital marketing, kombinerer kreativitet med dokumenterede metoder for at levere kampagner, der gør en forskel."
+      },
+      "data": {
+        "title": "Datadrevet tilgang",
+        "description": "Hver beslutning er baseret på omfattende analyser og markedsundersøgelser"
+      },
+      "personalized": {
+        "title": "Personlig strategi",
+        "description": "Skræddersyede løsninger til din branche og forretningsmål"
+      }
+    }
+  },
+  "footer": {
+    "logoAlt": "CFNA Marketing Logo",
+    "tagline": "Skaber klik. Leverer vækst.",
+    "copyright": "© 2025 CFNA Digital Solutions. Alle rettigheder forbeholdes."
+  },
+  "hero": {
+    "headline1": "Skaber klik.",
+    "headline2": "Leverer vækst.",
+    "subtext": "Forvandl din digitale tilstedeværelse med datadrevne marketingstrategier, der konverterer besøgende til kunder og skalerer din virksomhed.",
+    "button": "Book en gratis konsultation",
+    "trusted": "Betroet af 200+ virksomheder verden over"
+  }
+}

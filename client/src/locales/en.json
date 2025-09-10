@@ -1,0 +1,26 @@
+{
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer comprehensive digital marketing solutions tailored to your business goals",
+    "socialMedia": {
+      "title": "Social Media Management",
+      "description": "Build engaging communities and drive brand awareness across all major social platforms with strategic content and community management."
+    },
+    "paidAds": {
+      "title": "Paid Advertising",
+      "description": "Maximize your ROI with expertly managed Google Ads, Facebook Ads, and multi-platform campaigns that deliver measurable results."
+    },
+    "contentCreation": {
+      "title": "Content Creation",
+      "description": "Captivate your audience with high-quality visual content, copywriting, and multimedia that tells your brand story effectively."
+    },
+    "seo": {
+      "title": "Search Engine Optimization",
+      "description": "Boost your website's visibility and drive organic traffic with expert SEO strategies that improve rankings and attract qualified leads."
+    },
+    "aiVisibility": {
+      "title": "AI Visibility Optimization",
+      "description": "Leverage artificial intelligence to enhance your brand's online visibility, automate insights, and outperform competitors in search and social platforms."
+    }
+  }
+}

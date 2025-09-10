@@ -10,15 +10,17 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema.extend({
-      name: insertContactSchema.shape.name.min(2, "Name must be at least 2 characters"),
-      email: insertContactSchema.shape.email.email("Please enter a valid email address"),
-      message: insertContactSchema.shape.message.min(10, "Message must be at least 10 characters")
+      name: insertContactSchema.shape.name.min(2, t("contact.form.nameError", { defaultValue: "Name must be at least 2 characters" })),
+      email: insertContactSchema.shape.email.email(t("contact.form.emailError", { defaultValue: "Please enter a valid email address" })),
+      message: insertContactSchema.shape.message.min(10, t("contact.form.messageError", { defaultValue: "Message must be at least 10 characters" }))
     })),
     defaultValues: {
       name: "",
@@ -35,15 +37,15 @@ export default function Contact() {
     },
     onSuccess: () => {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message! We'll get back to you within 24 hours."
+        title: t("contact.toast.successTitle", { defaultValue: "Message sent!" }),
+        description: t("contact.toast.successDesc", { defaultValue: "Thank you for your message! We'll get back to you within 24 hours." })
       });
       form.reset();
     },
     onError: (error: Error) => {
       toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
+        title: t("contact.toast.errorTitle", { defaultValue: "Error" }),
+        description: error.message || t("contact.toast.errorDesc", { defaultValue: "Failed to send message. Please try again." }),
         variant: "destructive"
       });
     }
@@ -56,26 +58,26 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
-      value: "hello@cfnamarketing.com",
+      title: t("contact.info.email", { defaultValue: "Email" }),
+      value: "sales@cfnadigitalsolutions",
       color: "primary"
     },
     {
       icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
+      title: t("contact.info.phone", { defaultValue: "Phone" }),
+      value: "+45 31 71 79 83",
       color: "secondary"
     },
     {
       icon: Clock,
-      title: "Response Time",
-      value: "Within 24 hours",
+      title: t("contact.info.responseTime", { defaultValue: "Response Time" }),
+      value: t("contact.info.responseTimeValue", { defaultValue: "Within 24 hours" }),
       color: "primary"
     },
     {
       icon: MapPin,
-      title: "Location",
-      value: "New York, NY",
+      title: t("contact.info.location", { defaultValue: "Location" }),
+      value: t("contact.info.locationValue", { defaultValue: "Denmark, Copenhagen" }),
       color: "secondary"
     }
   ];
@@ -105,14 +107,13 @@ export default function Contact() {
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 fade-in" data-testid="contact-title">
-            Ready to <span className="gradient-text">Get Started</span>?
+          <h2 className="pt-2 text-4xl md:text-5xl font-bold mb-8 leading-tight fade-in md:bg-gradient-to-r md:from-blue-500 md:to-orange-500 md:bg-clip-text md:text-transparent" data-testid="contact-title">
+            {t("contact.title", { defaultValue: "Ready to Get Started?" })}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in fade-in-delay-1" data-testid="contact-subtitle">
-            Let's discuss how we can accelerate your business growth with proven digital marketing strategies
+            {t("contact.subtitle", { defaultValue: "Let's discuss how we can accelerate your business growth with proven digital marketing strategies" })}
           </p>
         </div>
-        
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="fade-in fade-in-delay-1">
@@ -123,10 +124,11 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>{t("contact.form.name", { defaultValue: "Full Name" })}</FormLabel>
                       <FormControl>
+              
                         <Input 
-                          placeholder="Enter your full name" 
+                          placeholder={t("contact.form.namePlaceholder", { defaultValue: "Enter your full name" })}
                           data-testid="input-name"
                           {...field} 
                         />
@@ -135,17 +137,16 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                
                 <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>{t("contact.form.email", { defaultValue: "Email Address" })}</FormLabel>
                       <FormControl>
                         <Input 
                           type="email"
-                          placeholder="Enter your email address" 
+                          placeholder={t("contact.form.emailPlaceholder", { defaultValue: "Enter your email address" })}
                           data-testid="input-email"
                           {...field} 
                         />
@@ -154,16 +155,15 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                
                 <FormField
                   control={form.control}
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company (Optional)</FormLabel>
+                      <FormLabel>{t("contact.form.company", { defaultValue: "Company (Optional)" })}</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="Your company name" 
+                          placeholder={t("contact.form.companyPlaceholder", { defaultValue: "Your company name" })}
                           data-testid="input-company"
                           {...field}
                           value={field.value || ""}
@@ -173,16 +173,15 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                
                 <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>{t("contact.form.message", { defaultValue: "Message" })}</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Tell us about your project and goals..."
+                          placeholder={t("contact.form.messagePlaceholder", { defaultValue: "Tell us about your project and goals..." })}
                           className="resize-none h-32"
                           data-testid="textarea-message"
                           {...field} 
@@ -192,47 +191,39 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
-                
                 <Button 
                   type="submit" 
                   className="w-full"
                   disabled={contactMutation.isPending}
                   data-testid="button-send-message"
                 >
-                  {contactMutation.isPending ? "Sending..." : "Send Message"}
+                  {contactMutation.isPending ? t("contact.form.sending", { defaultValue: "Sending..." }) : t("contact.form.send", { defaultValue: "Send Message" })}
                 </Button>
               </form>
             </Form>
           </div>
-          
           {/* Contact Information */}
           <div className="fade-in fade-in-delay-2">
             <div className="bg-card border border-border rounded-2xl p-8 h-fit">
-              <h3 className="text-2xl font-bold mb-8" data-testid="contact-info-title">Let's Connect</h3>
-              
+              <h3 className="text-2xl font-bold mb-8" data-testid="contact-info-title">{t("contact.info.title", { defaultValue: "Contact Us" })}</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => {
                   const IconComponent = info.icon;
                   return (
-                    <div key={info.title} className="flex items-start space-x-4" data-testid={`contact-info-${index + 1}`}>
+                    <div key={info.title} className="flex items-start space-x-4" data-testid={`contact-info-${index + 1}`}> 
                       <div className={`w-12 h-12 bg-${info.color}/10 rounded-lg flex items-center justify-center flex-shrink-0`}>
                         <IconComponent className={`w-6 h-6 text-${info.color}`} />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground" data-testid={`contact-info-title-${index + 1}`}>
-                          {info.title}
-                        </h4>
-                        <p className="text-muted-foreground mt-1" data-testid={`contact-info-value-${index + 1}`}>
-                          {info.value}
-                        </p>
+                        <h4 className="font-semibold text-foreground" data-testid={`contact-info-title-${index + 1}`}>{info.title}</h4>
+                        <p className="text-muted-foreground mt-1" data-testid={`contact-info-value-${index + 1}`}>{info.value}</p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              
               <div className="mt-8 pt-8 border-t border-border">
-                <h4 className="font-semibold text-foreground mb-4" data-testid="social-title">Follow Us</h4>
+                <h4 className="font-semibold text-foreground mb-4" data-testid="social-title">{t("contact.social.title", { defaultValue: "Social Media" })}</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social) => (
                     <a 
